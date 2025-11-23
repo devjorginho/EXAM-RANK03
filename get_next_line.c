@@ -128,5 +128,4 @@ int main()
 		printf("%s", line);
 		free(line);
 	}
-
 }
