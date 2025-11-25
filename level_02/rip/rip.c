@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-int	min_to_remove(char *s)
+int min_to_remove(char *s)
 {
 	int open = 0;
 	int close = 0;
 	int i = 0;
-	
+
 	while(s[i])
 	{
 		if(s[i] == '(')
@@ -19,20 +19,20 @@ int	min_to_remove(char *s)
 		}
 		i++;
 	}
-	return (open + close);
+	return(open + close);
 }
 
 void	solve(int index, int to_remove, int removed, char *s)
 {
 	if(removed > to_remove)
-		return;
+		return ;
 	if(s[index] == '\0')
 	{
 		if(to_remove == removed && min_to_remove(s) == 0)
 			puts(s);
-		return;
+		return ;
 	}
-	if(s[index] == ')' || s[index] == '(')
+	if(s[index] == '(' || s[index] == ')')
 	{
 		char temp = s[index];
 		s[index] = ' ';
@@ -41,10 +41,11 @@ void	solve(int index, int to_remove, int removed, char *s)
 	}
 	solve(index + 1, to_remove, removed, s);
 }
+
 int main(int ac, char **av)
 {
-	if(ac != 2)
-		return 1;
+	if(ac != 2 || !av[1][0])
+		return (1);
 	if(min_to_remove(av[1]) == 0)
 	{
 		puts(av[1]);
