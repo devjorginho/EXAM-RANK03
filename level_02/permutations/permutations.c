@@ -31,7 +31,7 @@ void	perm(char *s, int l, int r)
 		puts(s);
 		return ;
 	}
-	ft_sort(s);
+	ft_sort(s + l);
 	for(int i = l; i <= r; i++)
 	{
 		ft_swap(&s[l], &s[i]);
